@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\BananaController;
+use App\Http\Controllers\Api\GroupsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('', [BananaController::class, 'index']);
+Route::resources([
+    'products' => BananaController::class,
+    'groups' => GroupsController::class,
+]);

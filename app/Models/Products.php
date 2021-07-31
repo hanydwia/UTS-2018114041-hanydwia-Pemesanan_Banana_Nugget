@@ -8,12 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Products extends Model
 {
     use HasFactory;
+    protected $fillable = ['nama','harga', 'groups_id'];
 
-    protected $guarded = ['name'];  
-    
     public function groups()
     {
         return $this->belongsTo('App\Models\Groups');
     }
 }
-
